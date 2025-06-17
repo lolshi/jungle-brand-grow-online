@@ -4,12 +4,12 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
 import { Switch } from '@/components/ui/switch';
 import { Badge } from '@/components/ui/badge';
 import { toast } from '@/components/ui/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import { Trash2, Edit, Plus } from 'lucide-react';
+import HtmlEditor from './HtmlEditor';
 
 interface BlogPost {
   id: string;
@@ -162,7 +162,7 @@ const BlogPostManager = () => {
               </div>
             </div>
             <div>
-              <Label htmlFor="image_url">Image URL</Label>
+              <Label htmlFor="image_url">Featured Image URL</Label>
               <Input
                 id="image_url"
                 type="url"
@@ -170,16 +170,13 @@ const BlogPostManager = () => {
                 onChange={(e) => setFormData({ ...formData, image_url: e.target.value })}
               />
             </div>
-            <div>
-              <Label htmlFor="content">Content</Label>
-              <Textarea
-                id="content"
-                value={formData.content}
-                onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-                rows={6}
-                required
-              />
-            </div>
+            <HtmlEditor
+              label="Content"
+              value={formData.content}
+              onChange={(content) => setFormData({ ...formData, content })}
+              placeholder="Write your blog post content with HTML..."
+              rows={8}
+            />
             <div className="flex items-center space-x-2">
               <Switch
                 id="published"
@@ -216,7 +213,10 @@ const BlogPostManager = () => {
                     </Badge>
                     <Badge variant="outline">{post.category}</Badge>
                   </div>
-                  <p className="text-gray-600 text-sm mb-2">{post.content.substring(0, 200)}...</p>
+                  <div 
+                    className="text-gray-600 text-sm mb-2 prose prose-sm max-w-none line-clamp-3"
+                    dangerouslySetInnerHTML={{ __html: post.content.substring(0, 200) + '...' }}
+                  />
                   <p className="text-xs text-gray-500">
                     Created: {new Date(post.created_at).toLocaleDateString()}
                   </p>

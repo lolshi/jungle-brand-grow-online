@@ -4,11 +4,11 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
 import { toast } from '@/components/ui/use-toast';
 import { supabase } from '@/integrations/supabase/client';
-import { Trash2, Edit, Plus } from 'lucide-react';
+import {??Trash2, Edit, Plus } from 'lucide-react';
+import HtmlEditor from './HtmlEditor';
 
 interface CaseStudy {
   id: string;
@@ -210,25 +210,20 @@ const CaseStudyManager = () => {
                 onChange={(e) => setFormData({ ...formData, pdf_url: e.target.value })}
               />
             </div>
-            <div>
-              <Label htmlFor="description">Description</Label>
-              <Textarea
-                id="description"
-                value={formData.description}
-                onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                rows={4}
-                required
-              />
-            </div>
-            <div>
-              <Label htmlFor="results">Results</Label>
-              <Textarea
-                id="results"
-                value={formData.results}
-                onChange={(e) => setFormData({ ...formData, results: e.target.value })}
-                rows={3}
-              />
-            </div>
+            <HtmlEditor
+              label="Description"
+              value={formData.description}
+              onChange={(description) => setFormData({ ...formData, description })}
+              placeholder="Describe the case study with HTML formatting..."
+              rows={6}
+            />
+            <HtmlEditor
+              label="Results"
+              value={formData.results}
+              onChange={(results) => setFormData({ ...formData, results })}
+              placeholder="Document the results and outcomes with HTML formatting..."
+              rows={4}
+            />
             <div className="flex gap-2">
               <Button type="submit" disabled={loading} className="bg-jungle-green hover:bg-jungle-green/90">
                 {loading ? 'Saving...' : editingCase ? 'Update Case Study' : 'Create Case Study'}
@@ -257,9 +252,15 @@ const CaseStudyManager = () => {
                       <Badge variant="secondary">{caseStudy.client_name}</Badge>
                     )}
                   </div>
-                  <p className="text-gray-600 text-sm mb-2">{caseStudy.description.substring(0, 200)}...</p>
+                  <div 
+                    className="text-gray-600 text-sm mb-2 prose prose-sm max-w-none line-clamp-3"
+                    dangerouslySetInnerHTML={{ __html: caseStudy.description.substring(0, 200) + '...' }}
+                  />
                   {caseStudy.results && (
-                    <p className="text-green-600 text-sm mb-2">Results: {caseStudy.results.substring(0, 100)}...</p>
+                    <div 
+                      className="text-green-600 text-sm mb-2 prose prose-sm max-w-none line-clamp-2"
+                      dangerouslySetInnerHTML={{ __html: 'Results: ' + caseStudy.results.substring(0, 100) + '...' }}
+                    />
                   )}
                   <p className="text-xs text-gray-500">
                     Created: {new Date(caseStudy.created_at).toLocaleDateString()}

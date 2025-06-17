@@ -12,6 +12,7 @@ import BlogPostManager from '@/components/admin/BlogPostManager';
 import CaseStudyManager from '@/components/admin/CaseStudyManager';
 import ReviewManager from '@/components/admin/ReviewManager';
 import FormSubmissionManager from '@/components/admin/FormSubmissionManager';
+import ClientManager from '@/components/admin/ClientManager';
 import { User } from '@supabase/supabase-js';
 
 const Admin = () => {
@@ -102,10 +103,11 @@ const Admin = () => {
 
           {/* Main Content */}
           <Tabs defaultValue="blog" className="space-y-8">
-            <TabsList className="grid w-full grid-cols-4">
+            <TabsList className="grid w-full grid-cols-5">
               <TabsTrigger value="blog">Blog Posts</TabsTrigger>
               <TabsTrigger value="cases">Case Studies</TabsTrigger>
               <TabsTrigger value="reviews">Reviews</TabsTrigger>
+              <TabsTrigger value="clients">Clients</TabsTrigger>
               <TabsTrigger value="submissions">Form Submissions</TabsTrigger>
             </TabsList>
 
@@ -119,6 +121,10 @@ const Admin = () => {
 
             <TabsContent value="reviews">
               <ReviewManager />
+            </TabsContent>
+
+            <TabsContent value="clients">
+              <ClientManager />
             </TabsContent>
 
             <TabsContent value="submissions">
