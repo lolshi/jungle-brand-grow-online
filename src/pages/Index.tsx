@@ -1,9 +1,10 @@
 
 import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Layout from '@/components/Layout';
+import ParallaxSection from '@/components/ParallaxSection';
+import ThreeDButton from '@/components/ThreeDButton';
+import ThreeDCard from '@/components/ThreeDCard';
 
 const Index = () => {
   const services = [
@@ -80,184 +81,205 @@ const Index = () => {
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-jungle-green via-jungle-green/90 to-jungle-green/80 text-white overflow-hidden">
-        <div className="absolute inset-0 jungle-pattern opacity-20"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* Hero Section with Parallax */}
+      <ParallaxSection 
+        className="min-h-screen flex items-center justify-center bg-gradient-to-br from-jungle-green via-jungle-green/90 to-jungle-green/80 text-white overflow-hidden"
+        speed={0.5}
+      >
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
           <div className="animate-fade-in">
-            <Badge className="mb-6 bg-jungle-yellow text-jungle-black hover:bg-jungle-yellow/90">
+            <Badge className="mb-6 bg-jungle-yellow text-jungle-black hover:bg-jungle-yellow/90 shadow-lg">
               🌿 Fresh & Growing Fast in Mumbai
             </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-shadow">
               Thrive in the 
-              <span className="text-jungle-yellow"> Digital Jungle</span>
+              <span className="text-jungle-yellow block md:inline"> Digital Jungle</span>
               <br />with Expert Marketing
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-gray-200 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl mb-8 text-gray-200 max-w-4xl mx-auto leading-relaxed">
               We Grow Your Brand with tailored digital marketing strategies that deliver measurable results. 
               From startups to enterprises, we help businesses of all sizes dominate their digital territory.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button 
-                asChild 
-                size="lg" 
-                className="bg-jungle-yellow text-jungle-black hover:bg-jungle-yellow/90 text-lg px-8 py-4"
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+              <ThreeDButton 
+                variant="secondary" 
+                size="lg"
+                asChild
               >
                 <Link to="/contact">Get Free Consultation 🚀</Link>
-              </Button>
-              <Button 
-                asChild 
+              </ThreeDButton>
+              <ThreeDButton 
                 variant="outline" 
-                size="lg" 
-                className="border-white text-white hover:bg-white hover:text-jungle-green text-lg px-8 py-4"
+                size="lg"
+                asChild
               >
                 <Link to="/portfolio">Download Case Study 📊</Link>
-              </Button>
+              </ThreeDButton>
             </div>
           </div>
         </div>
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
+        
+        {/* Animated scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
+          <div className="w-6 h-10 border-2 border-jungle-yellow rounded-full flex justify-center shadow-lg">
+            <div className="w-1 h-3 bg-jungle-yellow rounded-full mt-2 animate-pulse"></div>
           </div>
         </div>
-      </section>
+
+        {/* Floating jungle elements */}
+        <div className="absolute top-20 left-10 text-6xl animate-float opacity-20">🌿</div>
+        <div className="absolute top-40 right-20 text-4xl animate-float opacity-30" style={{animationDelay: '1s'}}>🦎</div>
+        <div className="absolute bottom-32 left-20 text-5xl animate-float opacity-25" style={{animationDelay: '2s'}}>🍃</div>
+        <div className="absolute bottom-20 right-10 text-3xl animate-float opacity-20" style={{animationDelay: '0.5s'}}>🐸</div>
+      </ParallaxSection>
 
       {/* Services Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 relative">
+        <div className="leaf-divider absolute top-0 left-0 right-0"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-jungle-black mb-4">
               Services That Make You 
               <span className="text-jungle-green"> Roar</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               From SEO to social media, we offer comprehensive digital marketing solutions 
               tailored to help your brand thrive in the competitive digital landscape.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg">
-                <CardHeader className="text-center pb-4">
-                  <div className="text-4xl mb-4 animate-float">{service.icon}</div>
-                  <CardTitle className="text-jungle-green">{service.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 text-center mb-4">{service.description}</p>
-                  <Button 
-                    asChild 
-                    variant="outline" 
-                    className="w-full border-jungle-green text-jungle-green hover:bg-jungle-green hover:text-white"
-                  >
-                    <Link to="/services">Learn More</Link>
-                  </Button>
-                </CardContent>
-              </Card>
+              <ThreeDCard 
+                key={index}
+                title={service.title}
+                icon={service.icon}
+                className="bg-white/95 hover:bg-white border-0"
+              >
+                <p className="text-gray-600 text-center mb-4">{service.description}</p>
+                <ThreeDButton 
+                  variant="outline" 
+                  className="w-full"
+                  asChild
+                >
+                  <Link to="/services">Learn More</Link>
+                </ThreeDButton>
+              </ThreeDCard>
             ))}
           </div>
         </div>
       </section>
 
       {/* Portfolio Teaser */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white relative">
+        <div className="leaf-divider absolute top-0 left-0 right-0 transform rotate-180"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-jungle-black mb-4">
               Success Stories from the 
               <span className="text-jungle-green">Jungle</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               See how we've helped businesses across 10+ industries grow their digital presence 
               with creative strategies and measurable results.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {portfolioItems.map((item, index) => (
-              <Card key={index} className="overflow-hidden hover:shadow-xl transition-all duration-300">
-                <div className="aspect-video bg-gradient-to-br from-jungle-green/20 to-jungle-yellow/20 flex items-center justify-center">
+              <ThreeDCard key={index} className="overflow-hidden bg-white">
+                <div className="aspect-video bg-gradient-to-br from-jungle-green/20 to-jungle-yellow/20 flex items-center justify-center mb-4 rounded-lg overflow-hidden">
                   <img 
                     src={item.image} 
                     alt={item.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
                 </div>
-                <CardContent className="p-6">
-                  <Badge variant="secondary" className="mb-2">{item.category}</Badge>
-                  <h3 className="font-bold text-jungle-black mb-2">{item.title}</h3>
-                  <p className="text-gray-600 text-sm">{item.description}</p>
-                </CardContent>
-              </Card>
+                <Badge variant="secondary" className="mb-2">{item.category}</Badge>
+                <h3 className="font-bold text-jungle-black mb-2">{item.title}</h3>
+                <p className="text-gray-600 text-sm">{item.description}</p>
+              </ThreeDCard>
             ))}
           </div>
           <div className="text-center">
-            <Button 
-              asChild 
-              size="lg" 
-              className="bg-jungle-green hover:bg-jungle-green/90 text-white"
+            <ThreeDButton 
+              variant="primary" 
+              size="lg"
+              asChild
             >
               <Link to="/portfolio">View All Case Studies</Link>
-            </Button>
+            </ThreeDButton>
           </div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-jungle-green text-white relative overflow-hidden">
-        <div className="absolute inset-0 jungle-pattern opacity-10"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ParallaxSection 
+        className="py-20 bg-jungle-green text-white relative overflow-hidden"
+        speed={0.3}
+      >
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-shadow">
               What Our Pack Says About Us
             </h2>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
               Don't just take our word for it - hear from the brands we've helped grow in the digital jungle.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="bg-white/10 backdrop-blur-sm border-white/20 text-white">
-                <CardContent className="p-6">
-                  <p className="text-lg mb-4 italic">"{testimonial.quote}"</p>
-                  <div className="border-t border-white/20 pt-4">
-                    <p className="font-semibold text-jungle-yellow">{testimonial.name}</p>
-                    <p className="text-sm text-gray-300">{testimonial.company}</p>
-                  </div>
-                </CardContent>
-              </Card>
+              <ThreeDCard 
+                key={index} 
+                className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/15"
+                hover3D={true}
+              >
+                <p className="text-lg mb-4 italic leading-relaxed">"{testimonial.quote}"</p>
+                <div className="border-t border-white/20 pt-4">
+                  <p className="font-semibold text-jungle-yellow">{testimonial.name}</p>
+                  <p className="text-sm text-gray-300">{testimonial.company}</p>
+                </div>
+              </ThreeDCard>
             ))}
           </div>
         </div>
-      </section>
+        
+        {/* Floating testimonial elements */}
+        <div className="absolute top-10 right-10 text-4xl animate-float opacity-10">💬</div>
+        <div className="absolute bottom-10 left-10 text-3xl animate-float opacity-15" style={{animationDelay: '1.5s'}}>⭐</div>
+      </ParallaxSection>
 
       {/* CTA Section */}
-      <section className="py-20 bg-jungle-yellow">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-20 bg-jungle-yellow relative overflow-hidden">
+        <div className="jungle-pattern absolute inset-0 opacity-5"></div>
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
           <h2 className="text-3xl md:text-4xl font-bold text-jungle-black mb-6">
             Ready to Grow Your Brand in the Digital Jungle?
           </h2>
-          <p className="text-xl text-jungle-black/80 mb-8">
+          <p className="text-xl text-jungle-black/80 mb-8 leading-relaxed">
             Let's discuss how we can help your business thrive with tailored digital marketing strategies. 
             Book your free consultation today!
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              asChild 
-              size="lg" 
-              className="bg-jungle-green hover:bg-jungle-green/90 text-white text-lg px-8 py-4"
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <ThreeDButton 
+              variant="primary" 
+              size="lg"
+              asChild
             >
               <Link to="/contact">Start Your Journey 🌿</Link>
-            </Button>
-            <Button 
-              asChild 
+            </ThreeDButton>
+            <ThreeDButton 
               variant="outline" 
-              size="lg" 
-              className="border-jungle-black text-jungle-black hover:bg-jungle-black hover:text-jungle-yellow text-lg px-8 py-4"
+              size="lg"
+              className="border-jungle-black text-jungle-black hover:bg-jungle-black hover:text-jungle-yellow"
+              asChild
             >
               <Link to="/portfolio">See Our Work</Link>
-            </Button>
+            </ThreeDButton>
           </div>
         </div>
+        
+        {/* Floating CTA elements */}
+        <div className="absolute top-20 left-10 text-5xl animate-float opacity-20">🚀</div>
+        <div className="absolute bottom-20 right-10 text-4xl animate-float opacity-25" style={{animationDelay: '1s'}}>📈</div>
       </section>
     </Layout>
   );
