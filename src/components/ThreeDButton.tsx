@@ -10,6 +10,7 @@ interface ThreeDButtonProps {
   size?: 'sm' | 'md' | 'lg';
   onClick?: () => void;
   asChild?: boolean;
+  type?: 'button' | 'submit' | 'reset';
 }
 
 const ThreeDButton: React.FC<ThreeDButtonProps> = ({
@@ -19,6 +20,7 @@ const ThreeDButton: React.FC<ThreeDButtonProps> = ({
   size = 'md',
   onClick,
   asChild,
+  type,
   ...props
 }) => {
   const getVariantClasses = () => {
@@ -51,6 +53,7 @@ const ThreeDButton: React.FC<ThreeDButtonProps> = ({
     <Button
       asChild={asChild}
       onClick={onClick}
+      type={type}
       className={cn(
         'btn-3d font-semibold rounded-lg transition-all duration-200 transform-gpu',
         'relative overflow-hidden',
