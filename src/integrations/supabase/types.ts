@@ -9,7 +9,162 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      blog_posts: {
+        Row: {
+          category: string
+          content: string
+          created_at: string
+          id: string
+          image_url: string | null
+          published: boolean | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          category: string
+          content: string
+          created_at?: string
+          id?: string
+          image_url?: string | null
+          published?: boolean | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          category?: string
+          content?: string
+          created_at?: string
+          id?: string
+          image_url?: string | null
+          published?: boolean | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      case_studies: {
+        Row: {
+          client_name: string | null
+          created_at: string
+          description: string
+          id: string
+          image_url: string | null
+          pdf_url: string | null
+          results: string | null
+          service_category: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          client_name?: string | null
+          created_at?: string
+          description: string
+          id?: string
+          image_url?: string | null
+          pdf_url?: string | null
+          results?: string | null
+          service_category: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          client_name?: string | null
+          created_at?: string
+          description?: string
+          id?: string
+          image_url?: string | null
+          pdf_url?: string | null
+          results?: string | null
+          service_category?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      client_reviews: {
+        Row: {
+          client_name: string
+          company: string | null
+          created_at: string
+          id: string
+          logo_url: string | null
+          published: boolean | null
+          rating: number | null
+          review_text: string
+        }
+        Insert: {
+          client_name: string
+          company?: string | null
+          created_at?: string
+          id?: string
+          logo_url?: string | null
+          published?: boolean | null
+          rating?: number | null
+          review_text: string
+        }
+        Update: {
+          client_name?: string
+          company?: string | null
+          created_at?: string
+          id?: string
+          logo_url?: string | null
+          published?: boolean | null
+          rating?: number | null
+          review_text?: string
+        }
+        Relationships: []
+      }
+      form_submissions: {
+        Row: {
+          company: string | null
+          created_at: string
+          email: string
+          id: string
+          message: string
+          name: string
+          service_interest: string | null
+          status: string | null
+        }
+        Insert: {
+          company?: string | null
+          created_at?: string
+          email: string
+          id?: string
+          message: string
+          name: string
+          service_interest?: string | null
+          status?: string | null
+        }
+        Update: {
+          company?: string | null
+          created_at?: string
+          email?: string
+          id?: string
+          message?: string
+          name?: string
+          service_interest?: string | null
+          status?: string | null
+        }
+        Relationships: []
+      }
+      newsletter_subscriptions: {
+        Row: {
+          email: string
+          id: string
+          subscribed_at: string
+        }
+        Insert: {
+          email: string
+          id?: string
+          subscribed_at?: string
+        }
+        Update: {
+          email?: string
+          id?: string
+          subscribed_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
