@@ -7,7 +7,7 @@ import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
 import { toast } from '@/components/ui/use-toast';
 import { supabase } from '@/integrations/supabase/client';
-import {??Trash2, Edit, Plus } from 'lucide-react';
+import { Trash2, Edit, Plus } from 'lucide-react';
 import HtmlEditor from './HtmlEditor';
 
 interface CaseStudy {
