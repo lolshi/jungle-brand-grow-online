@@ -114,6 +114,39 @@ export type Database = {
         }
         Relationships: []
       }
+      clients: {
+        Row: {
+          company_name: string
+          contact_email: string | null
+          created_at: string
+          description: string
+          id: string
+          logo_url: string | null
+          project_status: string | null
+          updated_at: string
+        }
+        Insert: {
+          company_name: string
+          contact_email?: string | null
+          created_at?: string
+          description: string
+          id?: string
+          logo_url?: string | null
+          project_status?: string | null
+          updated_at?: string
+        }
+        Update: {
+          company_name?: string
+          contact_email?: string | null
+          created_at?: string
+          description?: string
+          id?: string
+          logo_url?: string | null
+          project_status?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       form_submissions: {
         Row: {
           company: string | null
