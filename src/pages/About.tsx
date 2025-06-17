@@ -1,231 +1,326 @@
 
 import Layout from '@/components/Layout';
+import ThreeDCard from '@/components/ThreeDCard';
+import ThreeDButton from '@/components/ThreeDButton';
+import ParallaxSection from '@/components/ParallaxSection';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { Globe, Target, Zap, Users, TrendingUp, Award, MapPin, Phone, Calendar } from 'lucide-react';
 
 const About = () => {
   const teamMembers = [
     {
-      name: 'Arjun Sharma',
-      role: 'Founder & Creative Director',
-      bio: 'With 8+ years in digital marketing, Arjun leads our creative vision and strategy development.',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face'
+      name: 'Aniket',
+      role: 'Founder & CEO',
+      bio: 'The visionary misfit who escaped agency life to build a collective that actually delivers. Expert in strategic growth and global scaling.',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face',
+      emoji: '🦁',
+      skills: ['Strategic Growth', 'Global Scaling', 'Business Development', 'Team Leadership']
     },
     {
-      name: 'Sneha Patel',
+      name: 'Shivam',
       role: 'Head of Performance Marketing',
-      bio: 'Sneha specializes in PPC and performance marketing, delivering measurable ROI for our clients.',
-      image: 'https://images.unsplash.com/photo-1494790108755-2616c0763c69?w=300&h=300&fit=crop&crop=face'
+      bio: 'ROAS-obsessed performance nerd who turns ad spend into profit machines. Specializes in scaling campaigns globally.',
+      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face',
+      emoji: '🎯',
+      skills: ['Performance Marketing', 'PPC Campaigns', 'ROAS Optimization', 'Analytics']
     },
     {
-      name: 'Karan Gupta',
-      role: 'Lead Developer & SEO Specialist',
-      bio: 'Karan combines technical expertise with SEO knowledge to build high-performing digital experiences.',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face'
+      name: 'Keshav',
+      role: 'SEO & UGC Specialist',
+      bio: 'Content killer and SEO wizard who makes brands go viral and rank #1. Master of organic growth and viral content creation.',
+      image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&h=300&fit=crop&crop=face',
+      emoji: '📱',
+      skills: ['SEO Strategy', 'UGC Creation', 'Content Marketing', 'Viral Campaigns']
     }
   ];
 
   const stats = [
-    { number: '10+', label: 'Industries Served' },
-    { number: '50+', label: 'Projects Completed' },
-    { number: '200%', label: 'Average Growth' },
-    { number: '24/7', label: 'Support Available' }
+    { icon: Globe, number: 'Global', label: 'Reach Worldwide', color: 'text-jungle-green' },
+    { icon: Users, number: '2-10', label: 'Expert Team', color: 'text-jungle-green' },
+    { icon: TrendingUp, number: '400%+', label: 'Average ROAS', color: 'text-jungle-green' },
+    { icon: Calendar, number: '2025', label: 'Founded', color: 'text-jungle-green' }
+  ];
+
+  const values = [
+    {
+      icon: '🎯',
+      title: 'Results-Driven',
+      description: 'Every strategy we create is designed to deliver measurable results and ROI for your business.',
+      gradient: 'from-jungle-green to-jungle-green/80'
+    },
+    {
+      icon: '💡',
+      title: 'Creative Innovation',
+      description: 'We blend creativity with technology to create unique solutions that make your brand stand out.',
+      gradient: 'from-jungle-yellow to-jungle-yellow/80'
+    },
+    {
+      icon: '🤝',
+      title: 'Partnership Approach',
+      description: 'We don\'t just work for you; we work with you as partners in your brand\'s growth journey.',
+      gradient: 'from-jungle-green to-jungle-yellow'
+    },
+    {
+      icon: '⚡',
+      title: 'Fast & Agile',
+      description: 'No bloated retainers or snail-paced approvals. We move fast and deliver sharp results.',
+      gradient: 'from-jungle-yellow to-jungle-green'
+    }
   ];
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-jungle-green to-jungle-green/90 text-white relative overflow-hidden">
-        <div className="absolute inset-0 jungle-pattern opacity-20"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Badge className="mb-6 bg-jungle-yellow text-jungle-black">
-            🌿 Based in Mumbai, Growing Globally
-          </Badge>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            We're The Brand Jungle Network
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto">
-            A fresh, full-service digital marketing and branding agency born in the heart of Mumbai. 
-            We specialize in helping businesses of all sizes thrive in the competitive digital landscape 
-            with creativity, strategy, and measurable results.
-          </p>
+      {/* Hero Section with Enhanced 3D Elements */}
+      <ParallaxSection className="py-32 bg-gradient-to-br from-jungle-green via-jungle-green/90 to-jungle-green/80 text-white relative overflow-hidden">
+        <div className="absolute inset-0 hero-jungle-pattern opacity-30"></div>
+        <div className="absolute top-10 left-10 animate-float">
+          <div className="text-6xl">🌿</div>
         </div>
-      </section>
-
-      {/* Story Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-jungle-black mb-6">
-                Our Story: Born in the 
-                <span className="text-jungle-green"> Mumbai Jungle</span>
-              </h2>
-              <div className="space-y-4 text-gray-600">
-                <p>
-                  The Brand Jungle Network was founded with a simple yet powerful vision: to help businesses 
-                  navigate and thrive in the ever-evolving digital jungle. Based in Mumbai, the commercial 
-                  capital of India, we understand the pulse of business and the challenges brands face in 
-                  standing out online.
-                </p>
-                <p>
-                  Our team combines creative passion with data-driven strategies, ensuring every campaign 
-                  we create not only looks great but delivers measurable results. We believe that in the 
-                  digital jungle, only the most adaptable and creative brands survive and thrive.
-                </p>
-                <p>
-                  From startups taking their first steps into the digital world to established enterprises 
-                  looking to expand their reach, we provide tailored solutions that grow with your business. 
-                  We don't just create campaigns; we build digital ecosystems where your brand can flourish.
-                </p>
-              </div>
-              <div className="mt-8">
-                <Button 
-                  asChild 
-                  className="bg-jungle-green hover:bg-jungle-green/90 text-white"
-                >
-                  <Link to="/contact">Join Our Journey</Link>
-                </Button>
-              </div>
+        <div className="absolute top-20 right-20 animate-float" style={{animationDelay: '1s'}}>
+          <div className="text-5xl">🦁</div>
+        </div>
+        <div className="absolute bottom-20 left-1/4 animate-float" style={{animationDelay: '2s'}}>
+          <div className="text-4xl">🎯</div>
+        </div>
+        <div className="absolute bottom-10 right-1/3 animate-float" style={{animationDelay: '1.5s'}}>
+          <div className="text-5xl">📱</div>
+        </div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <Badge className="mb-6 bg-jungle-yellow text-jungle-black animate-glow">
+            🌍 Global Collective • Based in Delhi, India
+          </Badge>
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
+            We're The Brand Jungle
+            <span className="text-jungle-yellow block animate-float"> Network</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto mb-8 animate-fade-in">
+            A collective of ex-agency misfits, performance nerds, and retention obsessives 
+            who got tired of bloated retainers and snail-paced approvals. So we built something better.
+          </p>
+          <div className="flex items-center justify-center gap-6 text-lg animate-slide-in">
+            <div className="flex items-center gap-2">
+              <MapPin className="h-5 w-5 text-jungle-yellow" />
+              <span>Delhi, India</span>
             </div>
-            <div className="relative">
-              <div className="aspect-square bg-gradient-to-br from-jungle-green/20 to-jungle-yellow/20 rounded-2xl flex items-center justify-center">
-                <img 
-                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=600&fit=crop" 
-                  alt="Mumbai cityscape" 
-                  className="w-full h-full object-cover rounded-2xl"
-                />
-              </div>
-              <div className="absolute -bottom-6 -right-6 bg-jungle-yellow p-6 rounded-2xl shadow-lg">
-                <p className="font-bold text-jungle-black text-2xl">Mumbai</p>
-                <p className="text-jungle-black/80">Our Home Base</p>
-              </div>
+            <div className="flex items-center gap-2">
+              <Phone className="h-5 w-5 text-jungle-yellow" />
+              <span>+91 88003 62887</span>
             </div>
           </div>
         </div>
-      </section>
+      </ParallaxSection>
 
-      {/* Stats Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Enhanced Stats Section with 3D Cards */}
+      <section className="py-20 bg-jungle-yellow relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="jungle-leaves-pattern"></div>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-jungle-black mb-4">
-              Fresh & Ready to 
-              <span className="text-jungle-green">Grow</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-jungle-black mb-4">
+              Built for 
+              <span className="text-jungle-green"> Global Impact</span>
             </h2>
-            <p className="text-xl text-gray-600">
-              We may be new, but we're already making a big impact
+            <p className="text-xl text-jungle-black/80">
+              From Delhi to the world, we're making brands roar
             </p>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-jungle-green mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-gray-600 font-medium">{stat.label}</div>
-              </div>
+              <ThreeDCard key={index} className="bg-white/95 hover:bg-white hover:scale-110 transition-all duration-300 text-center">
+                <stat.icon className={`h-12 w-12 ${stat.color} mx-auto mb-4 animate-float`} />
+                <div className="text-4xl font-bold text-jungle-green mb-2">{stat.number}</div>
+                <div className="text-jungle-black font-medium">{stat.label}</div>
+              </ThreeDCard>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-20 bg-white">
+      {/* Story Section with 3D Elements */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-jungle-green/5 rounded-full -translate-y-48 translate-x-48"></div>
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-jungle-yellow/10 rounded-full translate-y-32 -translate-x-32"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <Badge className="mb-6 bg-jungle-green text-white">
+                🚀 Our Origin Story
+              </Badge>
+              <h2 className="text-4xl md:text-5xl font-bold text-jungle-black mb-6">
+                Born in the 
+                <span className="text-jungle-green"> Delhi Ecosystem</span>
+              </h2>
+              <div className="space-y-6 text-gray-600 text-lg">
+                <p>
+                  The Brand Jungle Network was founded in 2025 with a rebellion against the traditional agency model. 
+                  Based in Delhi, the heart of India's digital revolution, we understand what it takes to make brands 
+                  roar in the global marketplace.
+                </p>
+                <p>
+                  We're not your typical company. We're a collective of ex-agency misfits who got tired of bloated 
+                  retainers and snail-paced approvals. From viral UGC to ROAS-breaking ad funnels, we create marketing 
+                  that's fast, sharp, and built to convert.
+                </p>
+                <p>
+                  Whether you're a scrappy DTC startup or a scaling enterprise, we plug into your ecosystem and move 
+                  like we're on your payroll (without the BS). We're a global team serving clients worldwide.
+                </p>
+              </div>
+              <div className="mt-8">
+                <ThreeDButton size="lg" className="hover:scale-105 transition-transform">
+                  <Link to="/contact">Join Our Jungle 🦁</Link>
+                </ThreeDButton>
+              </div>
+            </div>
+            <div className="relative">
+              <ThreeDCard className="aspect-square bg-gradient-to-br from-jungle-green/20 to-jungle-yellow/20 flex items-center justify-center hover:scale-105 transition-all duration-500">
+                <img 
+                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=600&fit=crop" 
+                  alt="Delhi cityscape representing our headquarters" 
+                  className="w-full h-full object-cover rounded-2xl"
+                />
+              </ThreeDCard>
+              <div className="absolute -bottom-6 -right-6 bg-jungle-yellow p-6 rounded-2xl shadow-lg hover:scale-110 transition-transform duration-300">
+                <p className="font-bold text-jungle-black text-2xl">Delhi</p>
+                <p className="text-jungle-black/80">Our Global HQ</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Team Section with Enhanced 3D Cards */}
+      <ParallaxSection className="py-20 bg-gray-50 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-jungle-green/10 to-transparent"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-jungle-black mb-4">
-              Meet Our 
-              <span className="text-jungle-green">Pack</span>
+            <Badge className="mb-4 bg-jungle-yellow text-jungle-black">
+              🎯 Meet The Misfits
+            </Badge>
+            <h2 className="text-4xl md:text-6xl font-bold text-jungle-black mb-6">
+              The Collective Behind 
+              <span className="text-jungle-green">Your Growth</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our diverse team brings together expertise in marketing, design, technology, 
-              and strategy to deliver exceptional results for your brand.
+              Ex-agency experts who escaped corporate bureaucracy to build something that actually works. 
+              Fast, sharp, and built for results.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
-              <Card key={index} className="text-center overflow-hidden hover:shadow-xl transition-all duration-300">
-                <CardHeader className="pb-4">
-                  <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
-                    <img 
-                      src={member.image} 
-                      alt={member.name}
-                      className="w-full h-full object-cover"
-                    />
+              <ThreeDCard 
+                key={index} 
+                className="h-full bg-white/95 hover:bg-white hover:scale-105 hover:rotate-1 transition-all duration-500 group"
+              >
+                <div className="text-center">
+                  <div className="relative mb-6">
+                    <div className="w-32 h-32 mx-auto rounded-full overflow-hidden ring-4 ring-jungle-green/20 group-hover:ring-jungle-green/50 transition-all duration-300">
+                      <img 
+                        src={member.image} 
+                        alt={member.name}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      />
+                    </div>
+                    <div className="absolute -top-2 -right-2 text-4xl animate-float group-hover:scale-125 transition-transform duration-300">
+                      {member.emoji}
+                    </div>
                   </div>
-                  <CardTitle className="text-jungle-green">{member.name}</CardTitle>
-                  <Badge variant="secondary">{member.role}</Badge>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">{member.bio}</p>
-                </CardContent>
-              </Card>
+                  <h3 className="text-2xl font-bold text-jungle-green mb-2">{member.name}</h3>
+                  <Badge className="mb-4 bg-jungle-yellow text-jungle-black">{member.role}</Badge>
+                  <p className="text-gray-600 mb-6">{member.bio}</p>
+                  <div className="space-y-2">
+                    {member.skills.map((skill, idx) => (
+                      <div key={idx} className="flex items-center justify-center text-sm text-jungle-green">
+                        <span className="mr-2">🌿</span> {skill}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </ThreeDCard>
+            ))}
+          </div>
+        </div>
+      </ParallaxSection>
+
+      {/* Values Section with Enhanced 3D Design */}
+      <section className="py-20 bg-jungle-green text-white relative overflow-hidden">
+        <div className="absolute inset-0 hero-jungle-pattern opacity-20"></div>
+        <div className="absolute top-10 right-10 animate-float">🌿</div>
+        <div className="absolute bottom-10 left-10 animate-float" style={{animationDelay: '1.5s'}}>⚡</div>
+        <div className="absolute top-1/2 left-1/4 animate-float" style={{animationDelay: '2.5s'}}>🎯</div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <Badge className="mb-4 bg-jungle-yellow text-jungle-black">
+              💡 Our Core Values
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-8">
+              What Makes Us Different
+            </h2>
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+              We're not just another agency. We're a collective built on principles that actually matter.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {values.map((value, index) => (
+              <ThreeDCard 
+                key={index} 
+                className={`bg-gradient-to-br ${value.gradient} hover:scale-110 hover:-rotate-2 transition-all duration-500 group text-white border-0`}
+              >
+                <div className="text-center">
+                  <div className="text-5xl mb-4 animate-float group-hover:scale-125 transition-transform duration-300">
+                    {value.icon}
+                  </div>
+                  <h3 className="text-xl font-bold mb-4 text-white">{value.title}</h3>
+                  <p className="text-white/90 text-sm leading-relaxed">{value.description}</p>
+                </div>
+              </ThreeDCard>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Mission Section */}
-      <section className="py-20 bg-jungle-green text-white relative overflow-hidden">
-        <div className="absolute inset-0 jungle-pattern opacity-20"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">
-            Our Mission & Values
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white">
-              <CardHeader>
-                <div className="text-4xl mb-4">🎯</div>
-                <CardTitle className="text-jungle-yellow">Results-Driven</CardTitle>
-              </CardHeader>
-              <CardContent>
-                Every strategy we create is designed to deliver measurable results and ROI for your business.
-              </CardContent>
-            </Card>
-            <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white">
-              <CardHeader>
-                <div className="text-4xl mb-4">💡</div>
-                <CardTitle className="text-jungle-yellow">Creative Innovation</CardTitle>
-              </CardHeader>
-              <CardContent>
-                We blend creativity with technology to create unique solutions that make your brand stand out.
-              </CardContent>
-            </Card>
-            <Card className="bg-white/10 backdrop-blur-sm border-white/20 text-white">
-              <CardHeader>
-                <div className="text-4xl mb-4">🤝</div>
-                <CardTitle className="text-jungle-yellow">Partnership Approach</CardTitle>
-              </CardHeader>
-              <CardContent>
-                We don't just work for you; we work with you as partners in your brand's growth journey.
-              </CardContent>
-            </Card>
-          </div>
+      {/* CTA Section with 3D Elements */}
+      <ParallaxSection className="py-20 bg-jungle-yellow relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="jungle-leaves-pattern"></div>
         </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-jungle-yellow">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-jungle-black mb-6">
-            Ready to Grow Together?
+        <div className="absolute top-10 left-10 animate-float">🦁</div>
+        <div className="absolute top-20 right-20 animate-float" style={{animationDelay: '1s'}}>🌍</div>
+        <div className="absolute bottom-10 left-1/3 animate-float" style={{animationDelay: '2s'}}>⚡</div>
+        
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h2 className="text-4xl md:text-5xl font-bold text-jungle-black mb-6">
+            Ready to Join the 
+            <span className="text-jungle-green block animate-float">Jungle Revolution?</span>
           </h2>
           <p className="text-xl text-jungle-black/80 mb-8">
-            Let's discuss how our fresh perspective and proven strategies can help your brand thrive 
-            in the digital jungle.
+            Let's plug into your ecosystem and create marketing that converts. 
+            Fast, sharp, and built for global scale.
           </p>
-          <Button 
-            asChild 
-            size="lg" 
-            className="bg-jungle-green hover:bg-jungle-green/90 text-white text-lg px-8 py-4"
-          >
-            <Link to="/contact">Let's Talk Growth 🌱</Link>
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <ThreeDButton 
+              size="lg" 
+              className="text-lg px-8 py-4 hover:scale-110 transition-transform duration-300"
+            >
+              <Link to="/contact">Start Your Growth Journey 🚀</Link>
+            </ThreeDButton>
+            <ThreeDButton 
+              variant="outline" 
+              size="lg" 
+              className="text-lg px-8 py-4 hover:scale-110 transition-transform duration-300"
+            >
+              <a href="tel:+918800362887">Call: +91 88003 62887</a>
+            </ThreeDButton>
+          </div>
         </div>
-      </section>
+      </ParallaxSection>
     </Layout>
   );
 };
