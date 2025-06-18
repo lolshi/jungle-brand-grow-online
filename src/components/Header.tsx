@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -24,16 +23,13 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-jungle-yellow rounded-lg flex items-center justify-center">
-              <div className="w-6 h-6 bg-jungle-green rounded flex items-center justify-center">
-                <span className="text-white font-bold text-sm">B</span>
-              </div>
-            </div>
-            <div className="flex flex-col">
-              <span className="font-bold text-jungle-black text-lg leading-tight">The Brand Jungle</span>
-              <span className="text-xs text-jungle-green">Network</span>
-            </div>
+          <Link to="/" className="flex items-center space-x-3">
+            <img
+              src="/logo.jpeg"
+              alt="The Brand Jungle Logo"
+              className="h-12 w-auto"
+              style={{ maxWidth: 48 }}
+            />
           </Link>
 
           {/* Desktop Navigation */}

@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -26,16 +25,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="md:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-jungle-yellow rounded-lg flex items-center justify-center">
-                <div className="w-6 h-6 bg-white rounded flex items-center justify-center">
-                  <span className="text-jungle-green font-bold text-sm">B</span>
-                </div>
-              </div>
-              <div className="flex flex-col">
-                <span className="font-bold text-white text-lg leading-tight">The Brand Jungle</span>
-                <span className="text-sm text-jungle-yellow">Network</span>
-              </div>
+            <div className="flex items-center mb-4">
+              <img
+                src="/logo.jpeg"
+                alt="The Brand Jungle Logo"
+                className="h-12 w-auto"
+                style={{ maxWidth: 48 }}
+              />
             </div>
             <p className="text-gray-300 mb-4 max-w-md">
               We Grow Your Brand in the digital jungle. A fresh, full-service digital marketing 

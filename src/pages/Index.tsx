@@ -1,4 +1,3 @@
-
 import Layout from '@/components/Layout';
 import ThreeDCard from '@/components/ThreeDCard';
 import ThreeDButton from '@/components/ThreeDButton';
@@ -156,60 +155,64 @@ const Index = () => {
       </div>
 
       {/* Enhanced Hero Section with Glassmorphism */}
-      <ParallaxSection className="py-32 bg-gradient-to-br from-jungle-green via-emerald-800 to-jungle-green/90 text-white relative overflow-hidden min-h-screen flex items-center">
-        <div className="absolute inset-0 hero-jungle-pattern opacity-20"></div>
-        
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-10 animate-float opacity-80">
-            <div className="text-6xl filter drop-shadow-xl animate-pulse">🌿</div>
-          </div>
-          <div className="absolute top-32 right-20 animate-float opacity-80" style={{animationDelay: '1s'}}>
-            <div className="text-5xl filter drop-shadow-xl animate-pulse">🐅</div>
-          </div>
-          <div className="absolute bottom-32 left-1/4 animate-float opacity-80" style={{animationDelay: '2s'}}>
-            <div className="text-4xl filter drop-shadow-xl animate-pulse">🦜</div>
-          </div>
-          <div className="absolute top-1/2 right-10 animate-float opacity-80" style={{animationDelay: '0.5s'}}>
-            <div className="text-3xl filter drop-shadow-xl animate-pulse">📊</div>
-          </div>
+      <div className="relative min-h-screen flex overflow-hidden">
+        {/* Video Banner Background */}
+        <video
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          src="/banner.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
+        {/* Overlay for readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-10" />
+        {/* Buttons moved down by 250px and centered horizontally */}
+        <div className="absolute left-1/2 top-[250px] -translate-x-1/2 z-30 flex flex-col sm:flex-row gap-6">
+          <ThreeDButton
+            size="lg"
+            className="
+              text-xl px-12 py-8
+              rounded-2xl
+              font-semibold
+              bg-gradient-to-br from-yellow-300 via-jungle-yellow to-yellow-500
+              shadow-[0_8px_24px_rgba(255,193,7,0.25),0_1.5px_4px_rgba(0,0,0,0.10)]
+              border-0
+              transition-all duration-200
+              hover:scale-105 hover:shadow-[0_12px_32px_rgba(255,193,7,0.35),0_2px_8px_rgba(0,0,0,0.15)]
+              active:scale-95
+            "
+          >
+            <Link to="/contact" className="flex items-center">
+              <Target className="mr-3 h-6 w-6" />
+              Book Free Consultation
+              <ArrowRight className="ml-3 h-6 w-6" />
+            </Link>
+          </ThreeDButton>
+          <ThreeDButton
+            variant="outline"
+            size="lg"
+            className="
+              text-xl px-12 py-8
+              rounded-2xl
+              font-semibold
+              bg-white/10
+              backdrop-blur-md
+              border border-white/40
+              shadow-[0_8px_24px_rgba(0,0,0,0.10)]
+              text-jungle-black
+              transition-all duration-200
+              hover:bg-white/20 hover:shadow-[0_12px_32px_rgba(0,0,0,0.15)]
+              active:scale-95
+            "
+          >
+            <Link to="/portfolio" className="flex items-center">
+              <Globe className="mr-3 h-6 w-6" />
+              Download Case Study
+            </Link>
+          </ThreeDButton>
         </div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <div className="backdrop-blur-sm bg-white/5 rounded-3xl p-8 border border-white/10 mb-8">
-            <Badge className="mb-8 bg-gradient-to-r from-jungle-yellow to-yellow-400 text-jungle-black animate-glow text-lg px-8 py-3 rounded-full shadow-xl">
-              <Sparkles className="mr-2 h-4 w-4" />
-              🌍 #1 Global Marketing Collective • Based in Delhi, India
-            </Badge>
-            
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-black mb-8 animate-fade-in leading-none bg-gradient-to-r from-white via-jungle-yellow to-white bg-clip-text text-transparent">
-              Global Marketing
-              <span className="block text-jungle-yellow animate-float drop-shadow-2xl"> That Converts</span>
-            </h1>
-            
-            <p className="text-xl md:text-2xl lg:text-3xl text-gray-100 max-w-5xl mx-auto mb-12 animate-fade-in leading-relaxed font-light">
-              We're the ex-agency misfits who make brands roar globally. From Delhi to the world, 
-              we create viral UGC and ROAS-breaking campaigns that scale without the BS.
-            </p>
-          </div>
-          
-          <div className="flex flex-col sm:flex-row gap-6 justify-center animate-slide-in">
-            <ThreeDButton size="lg" className="text-xl px-12 py-8 hover:scale-110 transition-all duration-300 bg-gradient-to-r from-jungle-yellow to-yellow-400 text-jungle-black shadow-2xl">
-              <Link to="/contact" className="flex items-center">
-                <Target className="mr-3 h-6 w-6" />
-                Book Free Consultation
-                <ArrowRight className="ml-3 h-6 w-6" />
-              </Link>
-            </ThreeDButton>
-            <ThreeDButton variant="outline" size="lg" className="text-xl px-12 py-8 hover:scale-110 transition-all duration-300 backdrop-blur-sm bg-white/10 border-white/30 hover:bg-white/20">
-              <Link to="/portfolio" className="flex items-center">
-                <Globe className="mr-3 h-6 w-6" />
-                Download Case Study
-              </Link>
-            </ThreeDButton>
-          </div>
-        </div>
-      </ParallaxSection>
+      </div>
 
       {/* Enhanced Achievements Section */}
       <section className="py-24 bg-gradient-to-r from-jungle-yellow via-yellow-300 to-jungle-yellow relative overflow-hidden">
